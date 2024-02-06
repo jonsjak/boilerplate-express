@@ -8,6 +8,12 @@ console.log("Hello World");
   res.send('Hello Express')
 }); */
 
+//Logger middleware
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path} - ${req.ip})`);
+  next();
+})
+
 app.get("/", (req, res) => {
   const absolutePath = __dirname + '/views/index.html';
   res.sendFile(absolutePath);
