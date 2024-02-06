@@ -1,18 +1,17 @@
 let express = require('express');
 let app = express();
 require('dotenv').config();
-
-console.log("Hello World");
-//First endpoint
-/* app.get("/", (req, res) => {
-  res.send('Hello Express')
-}); */
-
 //Logger middleware
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path} - ${req.ip})`);
   next();
 })
+
+/* console.log("Hello World"); */
+//First endpoint
+/* app.get("/", (req, res) => {
+  res.send('Hello Express')
+}); */
 
 app.get("/", (req, res) => {
   const absolutePath = __dirname + '/views/index.html';
