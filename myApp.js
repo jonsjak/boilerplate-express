@@ -1,7 +1,7 @@
 let express = require('express');
 let app = express();
 require('dotenv').config();
-//Logger middleware
+//Logger middleware - changed string format made it work
 app.use((req, res, next) => {
   const logString = req.method + " " + req.path + " - " + req.ip;
   console.log(logString);
@@ -32,6 +32,13 @@ app.get("/json", (req, res) => {
   res.json(responseMessage);
 
 });
+
+app.get("/now", (req, res, next) => {
+  req.time = new Date().toString();
+  next();
+}, (req, res) => {
+  res.send({time: req.time})
+})
 
 
 
