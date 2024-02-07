@@ -56,6 +56,12 @@ app.route("/name")
       "name" : `${firstName} ${lastName}`
     })
   })
+  .post((req, res) => {
+    const {first: firstName, last: lastName } = req.body;
+    res.send({
+      "name" : `${firstName} ${lastName}`
+    });
+  });
 
 
 
