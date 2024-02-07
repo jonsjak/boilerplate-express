@@ -45,6 +45,13 @@ app.get("/:word/echo", (req, res) => {
   res.send({ "echo" : echoWord});
 })
 
+app.route("/name")
+  .get((req, res) => {
+    const {first: firstName, last: lastName } = req.query;
+    res.send({
+      "name" : `${firstName} ${lastName}`
+    })
+  })
 
 
 
