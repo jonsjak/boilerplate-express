@@ -40,6 +40,10 @@ app.get("/now", (req, res, next) => {
   res.send({time: req.time})
 })
 
+app.get("/:word/echo", (req, res) => {
+  const echoWord = req.params.word;
+  res.send({ "echo" : echoWord});
+})
 
 
 
