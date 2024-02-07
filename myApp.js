@@ -1,6 +1,10 @@
 let express = require('express');
 let app = express();
+let bodyParser = require('body-parser');
 require('dotenv').config();
+
+//bodyParser middleware
+app.use(bodyParser.urlencoded({extended: false}));
 //Logger middleware - changed string format made it work
 app.use((req, res, next) => {
   const logString = req.method + " " + req.path + " - " + req.ip;
